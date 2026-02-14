@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最新AI動向レポート | 2026年2月14日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       1. RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      background: #E2E8F0;
+      font-family: 'Noto Sans JP', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+      padding: 32px 0;
+    }
+
+    /* ============================================
+       2. SLIDE CONTAINER & PAGING
+       ============================================ */
+    .deck { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      padding: 48px 56px;
+      page-break-after: always;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+
+    /* ============================================
+       3. TYPOGRAPHY
+       ============================================ */
+    .slide__action-title {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #1B3A5C;
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .slide__exhibit {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: #1B3A5C;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 6px;
+    }
+    .slide__source {
+      position: absolute;
+      bottom: 14px; left: 56px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; color: #999;
+    }
+    .slide__page {
+      position: absolute;
+      bottom: 14px; right: 56px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; color: #bbb;
+    }
+    .body-text {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .body-text strong { color: #1a1a2e; }
+    .small-text { font-size: 11px; color: #666; line-height: 1.6; }
+    .label-text { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+
+    /* ============================================
+       4. LAYOUT UTILITIES
+       ============================================ */
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .grid-2col-40-60 { display: grid; grid-template-columns: 2fr 3fr; gap: 32px; }
+    .grid-2col-60-40 { display: grid; grid-template-columns: 3fr 2fr; gap: 32px; }
+    .grid-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .grid-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+    .flex-row { display: flex; gap: 24px; align-items: flex-start; }
+    .flex-col { display: flex; flex-direction: column; gap: 12px; }
+
+    /* ============================================
+       5. DATA TABLES
+       ============================================ */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .data-table th {
+      background: #1B3A5C; color: #fff;
+      padding: 7px 10px; text-align: left;
+      font-weight: 600; font-size: 10px;
+      letter-spacing: 0.5px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .data-table th:last-child { border-right: none; }
+    .data-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: #F7F8FA; }
+    .data-table .highlight-row td { background: #EBF0F7; font-weight: 600; }
+    .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ============================================
+       6. BAR CHART COMPONENTS
+       ============================================ */
+    .bar-chart { display: flex; flex-direction: column; gap: 6px; }
+    .bar-chart__row { display: flex; align-items: center; gap: 8px; }
+    .bar-chart__label { width: 80px; font-size: 10px; text-align: right; color: #4A5568; flex-shrink: 0; }
+    .bar-chart__track { flex: 1; height: 28px; background: #F7F8FA; border-radius: 2px; position: relative; }
+    .bar-chart__bar {
+      height: 100%; border-radius: 2px;
+      display: flex; align-items: center; padding-left: 8px;
+      font-size: 10px; font-weight: 600; color: #fff;
+      min-width: 30px;
+    }
+    .bar-chart__value { font-size: 10px; font-weight: 600; color: #333; margin-left: 8px; flex-shrink: 0; }
+
+    /* ============================================
+       7. KPI CARDS
+       ============================================ */
+    .kpi-card {
+      text-align: center; padding: 16px 12px;
+      border: 1px solid #E2E8F0; border-radius: 4px;
+      background: #fff;
+    }
+    .kpi-card__number {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px; font-weight: 700; color: #1B3A5C;
+      line-height: 1.1;
+    }
+    .kpi-card__label {
+      font-size: 10px; color: #666;
+      letter-spacing: 0.5px;
+      margin-top: 6px; line-height: 1.4;
+    }
+    .kpi-card--accent { border-left: 4px solid #0D7377; }
+    .kpi-card--primary { border-left: 4px solid #1B3A5C; }
+    .kpi-card--warning { border-left: 4px solid #D97706; }
+    .kpi-card--danger { border-left: 4px solid #C0392B; }
+
+    /* ============================================
+       8. CALLOUT BOX
+       ============================================ */
+    .callout-box {
+      background: #F7F8FA;
+      border-left: 4px solid #1B3A5C;
+      padding: 12px 16px;
+      font-size: 12px; line-height: 1.6;
+      color: #333;
+    }
+    .callout-box--accent { border-left-color: #0D7377; }
+    .callout-box--warning { border-left-color: #D97706; }
+    .callout-box strong { color: #1a1a2e; }
+
+    /* ============================================
+       9. BULLET LIST
+       ============================================ */
+    .bullet-list { list-style: none; padding: 0; }
+    .bullet-list li {
+      font-size: 13px; line-height: 1.7; color: #333;
+      padding: 7px 0; padding-left: 16px;
+      border-bottom: 1px solid #F0F0F0;
+      position: relative;
+    }
+    .bullet-list li::before {
+      content: '';
+      position: absolute; left: 0; top: 15px;
+      width: 6px; height: 6px;
+      background: #1B3A5C; border-radius: 1px;
+    }
+    .bullet-list li:last-child { border-bottom: none; }
+    .bullet-list li strong { color: #1a1a2e; }
+
+    /* ============================================
+       10. INSIGHT BLOCKS
+       ============================================ */
+    .insight-block {
+      background: #F7F8FA;
+      border-top: 3px solid #1B3A5C;
+      padding: 16px;
+    }
+    .insight-block--accent { border-top-color: #0D7377; }
+    .insight-block--warning { border-top-color: #D97706; }
+    .insight-block--grey { border-top-color: #4A5568; }
+    .insight-block__number {
+      font-size: 28px; font-weight: 700; color: #1B3A5C;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .insight-block__title {
+      font-size: 13px; font-weight: 700; color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    .insight-block__body { font-size: 11px; color: #4A5568; line-height: 1.6; }
+
+    /* ============================================
+       11. COVER SLIDE STYLES
+       ============================================ */
+    .slide--cover {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 72px 80px;
+    }
+    .slide--cover .cover__band {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 6px; background: #1B3A5C;
+    }
+    .slide--cover .cover__title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 34px; font-weight: 700; color: #1a1a2e;
+      line-height: 1.4; max-width: 900px;
+      margin-bottom: 16px;
+    }
+    .slide--cover .cover__subtitle {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16px; color: #4A5568;
+      font-weight: 400; margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .slide--cover .cover__date {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; color: #999;
+      margin-top: 4px;
+    }
+    .slide--cover .cover__divider {
+      width: 80px; height: 2px;
+      background: #1B3A5C; margin: 20px 0;
+    }
+    .slide--cover .cover__footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; color: #bbb;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      position: absolute; bottom: 40px; left: 80px;
+    }
+
+    /* ============================================
+       12. TAG / BADGE
+       ============================================ */
+    .tag {
+      display: inline-block;
+      font-size: 9px; font-weight: 600;
+      padding: 3px 8px; border-radius: 2px;
+      letter-spacing: 0.3px;
+    }
+    .tag--blue { background: #EBF0F7; color: #1B3A5C; }
+    .tag--teal { background: #E6F7F7; color: #0D7377; }
+    .tag--orange { background: #FEF3E2; color: #D97706; }
+    .tag--red { background: #FDE8E8; color: #C0392B; }
+    .tag--green { background: #E8F5E9; color: #2D8B4E; }
+
+    /* ============================================
+       13. TIMELINE
+       ============================================ */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px;
+      width: 2px; background: #E2E8F0;
+    }
+    .timeline__item { position: relative; padding-bottom: 16px; }
+    .timeline__item::before {
+      content: ''; position: absolute; left: -24px; top: 5px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #1B3A5C; border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #1B3A5C;
+    }
+    .timeline__year { font-size: 11px; font-weight: 700; color: #1B3A5C; margin-bottom: 3px; }
+    .timeline__text { font-size: 11px; color: #4A5568; line-height: 1.5; }
+
+    /* ============================================
+       14. SECTION DIVIDER SLIDE
+       ============================================ */
+    .slide--section {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 72px 80px;
+      background: #1B3A5C;
+    }
+    .slide--section .section__number {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.5);
+      letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .slide--section .section__title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 30px; font-weight: 700; color: #fff;
+      line-height: 1.4; max-width: 800px;
+    }
+    .slide--section .section__subtitle {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px; color: rgba(255,255,255,0.7);
+      margin-top: 12px; line-height: 1.6;
+    }
+
+    /* ============================================
+       15. PRINT STYLES
+       ============================================ */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .deck { gap: 0; }
+      .slide { box-shadow: none; margin: 0; }
+      @page { size: 1280px 720px landscape; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- ==========================================
+       SLIDE 1: COVER
+       ========================================== -->
+  <section class="slide slide--cover">
+    <div class="cover__band"></div>
+    <div class="cover__title">最新AI動向ウィークリーレポート</div>
+    <div class="cover__subtitle">半導体スーパーサイクル、Anthropicの急成長、AIエージェント新潮流</div>
+    <div class="cover__divider"></div>
+    <div class="cover__date">Weekly AI Intelligence Brief &nbsp;|&nbsp; 2026年2月14日</div>
+    <div class="cover__footer">AI Market Research &mdash; Weekly Report</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 2: EXECUTIVE SUMMARY
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXECUTIVE SUMMARY</div>
+    <div class="slide__action-title">今週の注目トピック：AI半導体スーパーサイクル本格化、Anthropicが$30B調達で$380B評価に到達</div>
+    <ul class="bullet-list" style="margin-top: 4px;">
+      <li><strong>半導体スーパーサイクル突入：</strong>AI需要の爆発的増加により、2026年の世界半導体市場は前年比20%増の125兆円に達する見通し。HBM・先端ロジック半導体の逼迫が設備投資を加速させ、東京エレクトロンやASMLなど装置メーカーが空前の好況を享受。</li>
+      <li><strong>Anthropic、驚異的成長を記録：</strong>年間ランレート収益$140億、3年連続10倍成長を達成。Series Gで$300億を調達し、評価額$3,800億に。元MS CFO Chris Liddellが取締役に就任しIPO準備を加速。</li>
+      <li><strong>AIとGDP・雇用の議論が活発化：</strong>Dario Amodei CEOがダボス会議でAIによるGDP成長率5〜10%と失業率10%の併存を予測。政府介入の必要性を訴え。</li>
+      <li><strong>AIエージェント・ツール領域で新展開：</strong>AGI Inc.がAIエージェント駆動型企業として活動を本格化。MCP vs Agent Skillsの議論では両者の組み合わせが最適解として浮上。Alibabaはプレゼン自動生成AI「Qwen-Image-2.0」を発表。</li>
+      <li><strong>国内スタートアップ動向：</strong>完全自動運転を目指すTuringがGMOから32億円の出資を獲得。シリーズA累計153億円超の大型調達に。</li>
+    </ul>
+    <div class="slide__source">Source: Nikkei, Anthropic, WSJ, The Decoder, 各社プレスリリース（2026年2月）</div>
+    <div class="slide__page">2</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 3: SECTION DIVIDER - 半導体
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">01</div>
+    <div class="section__title">AI半導体市場、スーパーサイクル突入が濃厚に</div>
+    <div class="section__subtitle">HBM需要逼迫・装置メーカー絶好調 ― 2026年市場規模は125兆円へ</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 4: 半導体市場概況
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 1</div>
+    <div class="slide__action-title">AI需要を原動力に世界半導体市場はスーパーサイクルに突入、2026年は前年比20%増の125兆円規模へ</div>
+    <div class="grid-2col" style="margin-top: 8px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">世界半導体市場規模の推移（兆円）</div>
+        <div class="bar-chart">
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2023年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 49%; background: #94A3B8;">~73兆円</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2024年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 60%; background: #4A5568;">~90兆円</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">+24%</div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2025年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 70%; background: #1B3A5C;">~105兆円</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">+15%</div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2026年(予)</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 84%; background: #0D7377;">~125兆円</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">+20%</div>
+          </div>
+        </div>
+
+        <div class="callout-box" style="margin-top: 18px;">
+          <strong>スーパーサイクルとは：</strong>従来の4〜5年周期のシリコンサイクルを超え、AI・IoT・5G・EV電動化などの構造的需要により好況が数年にわたり持続する大規模成長局面。
+        </div>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">主要ドライバー</div>
+        <div class="flex-col" style="gap: 10px;">
+          <div class="insight-block">
+            <div class="insight-block__title">HBM（広帯域メモリ）需要の爆発</div>
+            <div class="insight-block__body">AIサーバーでのデータ処理に不可欠なHBMの需要が逼迫。半導体メーカーが増産体制を整え、設備投資が加速。年平均成長率20%でAIサーバー出荷台数が増加。</div>
+          </div>
+          <div class="insight-block insight-block--accent">
+            <div class="insight-block__title">EUV露光装置の寡占構造</div>
+            <div class="insight-block__body">ASML独占のEUV露光装置（1台約500億円）は最先端GPU/CPU製造に不可欠。東京エレクトロン・SCREENなど日本勢も世界的寡占を背景にスーパーサイクルの中心に。</div>
+          </div>
+          <div class="insight-block insight-block--warning">
+            <div class="insight-block__title">リスク要因</div>
+            <div class="insight-block__body">対中輸出規制、中国向け売上依存（平均35%）、AIバブル懸念、成熟半導体の回復遅れが潜在的リスク。供給過剰による価格下落の可能性も。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: 日本経済新聞、電子デバイス産業新聞、IDC、第一生命経済研究所（2025-2026年）</div>
+    <div class="slide__page">4</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 5: SECTION DIVIDER - Anthropic
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">02</div>
+    <div class="section__title">Anthropic、3年連続10倍成長 &amp; Series G $300億調達</div>
+    <div class="section__subtitle">ランレート収益$140億、評価額$3,800億 ― 元MS幹部が取締役就任でIPO準備加速</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 6: Anthropic 成長データ
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 2</div>
+    <div class="slide__action-title">Anthropicはランレート収益$140億を達成、3年連続10倍成長でエンタープライズAIプラットフォームの地位を確立</div>
+
+    <div class="grid-4col" style="margin-top: 12px; margin-bottom: 18px;">
+      <div class="kpi-card kpi-card--primary">
+        <div class="kpi-card__number">$140億</div>
+        <div class="kpi-card__label">年間ランレート収益<br>(2026年2月時点)</div>
+      </div>
+      <div class="kpi-card kpi-card--accent">
+        <div class="kpi-card__number">10x</div>
+        <div class="kpi-card__label">年間売上成長率<br>(3年連続)</div>
+      </div>
+      <div class="kpi-card kpi-card--primary">
+        <div class="kpi-card__number">$3,800億</div>
+        <div class="kpi-card__label">Series G後の<br>企業評価額</div>
+      </div>
+      <div class="kpi-card kpi-card--accent">
+        <div class="kpi-card__number">$300億</div>
+        <div class="kpi-card__label">Series G<br>資金調達額</div>
+      </div>
+    </div>
+
+    <div class="grid-2col">
+      <div>
+        <div class="label-text" style="margin-bottom: 8px;">収益成長の軌跡</div>
+        <div class="bar-chart">
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2022年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 3%; background: #94A3B8; font-size: 9px; padding-left: 4px;">$0.1億</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2023年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 5%; background: #4A5568; font-size: 9px; padding-left: 4px;">$1億</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">10x</div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2024年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 12%; background: #1B3A5C;">$10億</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">10x</div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2025年</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 60%; background: #0D7377;">$86億(推定)</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">~9x</div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">2026年(予)</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 100%; background: linear-gradient(90deg, #0D7377, #1B3A5C);">$180億(見通し)</div>
+            </div>
+            <div class="bar-chart__value" style="color: #2D8B4E;">+109%</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 8px;">成長を支える主要指標</div>
+        <div class="flex-col" style="gap: 8px;">
+          <div class="callout-box">
+            <strong>エンタープライズ浸透：</strong>年間$100K以上の顧客数が前年比<strong>7倍</strong>に成長。年間$1M超の顧客は12社→<strong>500社超</strong>に。Fortune 10のうち<strong>8社</strong>がClaude顧客。
+          </div>
+          <div class="callout-box callout-box--accent">
+            <strong>Claude Code：</strong>ランレート収益<strong>$25億超</strong>。2026年初頭から<strong>2倍以上</strong>に成長。法人契約は4倍増、エンタープライズが収益の半数超を占有。
+          </div>
+          <div class="callout-box">
+            <strong>Series G投資家：</strong>GIC、Coatue、D.E. Shaw、Dragoneer、Founders Fundなどが参加。<strong>2027年までにキャッシュフロー黒字化</strong>の道筋を提示。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Anthropic Press Release, Axios, Sherwood News, Seeking Alpha（2026年2月12日）</div>
+    <div class="slide__page">6</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 7: Anthropic 取締役 & IPO
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 3</div>
+    <div class="slide__action-title">元Microsoft CFO Chris Liddellの取締役就任により、Anthropicは2026年末のIPOに向けた体制を強化</div>
+    <div class="grid-2col" style="margin-top: 12px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">Chris Liddell プロフィール</div>
+        <table class="data-table">
+          <tr>
+            <th style="width: 35%;">経歴</th>
+            <th>詳細</th>
+          </tr>
+          <tr>
+            <td><strong>Microsoft</strong></td>
+            <td>最高財務責任者（CFO）</td>
+          </tr>
+          <tr>
+            <td><strong>General Motors</strong></td>
+            <td>副会長 ― 2010年のGM IPO（$230億規模）を主導</td>
+          </tr>
+          <tr>
+            <td><strong>International Paper</strong></td>
+            <td>最高財務責任者（CFO）</td>
+          </tr>
+          <tr>
+            <td><strong>ホワイトハウス</strong></td>
+            <td>トランプ第1期・副首席補佐官</td>
+          </tr>
+        </table>
+
+        <div class="callout-box" style="margin-top: 16px;">
+          <strong>IPO準備：</strong>Anthropicは2026年末までの上場を金融パートナーに示唆。OpenAI、SpaceXと並びIPO有力3社の1つ。Liddellの大型IPO経験とワシントン人脈が重要資産に。
+        </div>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">現在の取締役会構成</div>
+        <table class="data-table">
+          <tr>
+            <th>氏名</th>
+            <th>役職 / 背景</th>
+          </tr>
+          <tr>
+            <td><strong>Dario Amodei</strong></td>
+            <td>CEO・共同創業者</td>
+          </tr>
+          <tr>
+            <td><strong>Daniela Amodei</strong></td>
+            <td>President・共同創業者</td>
+          </tr>
+          <tr>
+            <td><strong>Yasmin Razavi</strong></td>
+            <td>Spark Capital</td>
+          </tr>
+          <tr>
+            <td><strong>Jay Kreps</strong></td>
+            <td>Confluent CEO</td>
+          </tr>
+          <tr>
+            <td><strong>Reed Hastings</strong></td>
+            <td>Netflix共同創業者</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Chris Liddell</strong></td>
+            <td>元Microsoft CFO（新任）</td>
+          </tr>
+        </table>
+
+        <div class="callout-box callout-box--warning" style="margin-top: 16px;">
+          <strong>政治的背景：</strong>トランプ政権のAI・暗号通貨担当David Sacksが2025年10月にAnthropicを「woke AI」と批判した経緯があり、Liddell就任にはワシントンとの関係改善の狙いも。
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: CNBC, WSJ, Anthropic Press Release, Sherwood News（2026年2月13日）</div>
+    <div class="slide__page">7</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 8: SECTION DIVIDER - GDP
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">03</div>
+    <div class="section__title">Anthropic CEO、AIがGDPを年5〜10%成長させると予測</div>
+    <div class="section__subtitle">ダボス会議で「失業率10%との同時進行」を警告 ― 政府介入の必要性を訴え</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 9: GDP予測詳細
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 4</div>
+    <div class="slide__action-title">Dario Amodei CEOは「GDP 5〜10%成長と失業率10%の併存」を警告、前例のない経済構造の変化を予測</div>
+    <div class="grid-2col-60-40" style="margin-top: 12px;">
+      <div>
+        <div class="grid-3col" style="margin-bottom: 16px;">
+          <div class="kpi-card kpi-card--accent">
+            <div class="kpi-card__number">5〜10%</div>
+            <div class="kpi-card__label">AIによる<br>GDP成長率予測</div>
+          </div>
+          <div class="kpi-card kpi-card--danger">
+            <div class="kpi-card__number">10%</div>
+            <div class="kpi-card__label">同時に予測される<br>失業率</div>
+          </div>
+          <div class="kpi-card kpi-card--warning">
+            <div class="kpi-card__number">50%</div>
+            <div class="kpi-card__label">「ゼロス世界」の<br>GDP成長率</div>
+          </div>
+        </div>
+
+        <div class="label-text" style="margin-bottom: 8px;">Amodei CEOの主張ポイント</div>
+        <ul class="bullet-list">
+          <li><strong>前例なき事態：</strong>GDP高成長と高失業率が同時に発生する組み合わせは「歴史上ほぼ前例がない」とWSJに語る。</li>
+          <li><strong>「ナイトメア」シナリオ：</strong>シリコンバレーの約700万人と散在する300万人からなる「ゼロス世界（第零世界）」がGDP50%成長を享受する一方、それ以外の社会から切り離される可能性。</li>
+          <li><strong>雇用構造の変化：</strong>「物理世界の仕事は増え、ナレッジワーク経済の仕事は減少する」と予測。</li>
+          <li><strong>政府の役割：</strong>「成長の阻害を心配するよりも、全員が成長の恩恵を受けられるようにすることを心配すべき時期」と発言。</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 8px;">発言の背景と文脈</div>
+        <div class="flex-col" style="gap: 10px;">
+          <div class="insight-block">
+            <div class="insight-block__title">ダボス会議（WEF 2026）</div>
+            <div class="insight-block__body">世界経済フォーラム年次総会にてWSJのインタビューで発言。「AIの進歩は速すぎる」として規制による減速も主張。</div>
+          </div>
+          <div class="insight-block insight-block--accent">
+            <div class="insight-block__title">安全性への姿勢</div>
+            <div class="insight-block__body">Amodei氏はOpenAIから安全性への懸念を理由に退社しAnthropicを共同設立。「人々は今後の変化の規模とその影響について、ほぼ認識していない」と警鐘。</div>
+          </div>
+          <div class="insight-block insight-block--warning">
+            <div class="insight-block__title">安全研究者の退職</div>
+            <div class="insight-block__body">同時期にAnthropicの安全研究者が「世界は危機に瀕している」と警告して退職するなど、AI安全性を巡る緊張が高まっている。</div>
+          </div>
+          <div class="callout-box" style="margin-top: 4px;">
+            <strong>示唆：</strong>AI企業CEOが自ら規制と社会的介入を求める異例の姿勢。AIがもたらす経済的恩恵と社会的分断への対策が世界的政策課題に。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: WSJ, Benzinga, Yahoo Finance, Semafor（2026年2月）</div>
+    <div class="slide__page">9</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 10: SECTION DIVIDER - AGI Inc
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">04</div>
+    <div class="section__title">AGI Inc. ― AIエージェント駆動型企業が本格始動</div>
+    <div class="section__subtitle">MultiOn創業者が設立、スマホ上で自律的にタスクを実行するAIエージェントを提供</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 11: AGI Inc. 詳細
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 5</div>
+    <div class="slide__action-title">AGI Inc.はスマートフォン上のプロアクティブなAIエージェント「AGI-0」で、日常タスクの完全自動化を目指す</div>
+    <div class="grid-2col" style="margin-top: 12px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">AGI Inc. 企業概要</div>
+        <table class="data-table">
+          <tr>
+            <th style="width: 35%;">項目</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td><strong>設立</strong></td>
+            <td>2025年、サンフランシスコ</td>
+          </tr>
+          <tr>
+            <td><strong>創業者</strong></td>
+            <td>Div Garg（スタンフォード大CS博士課程、元MultiOn AI創業者）</td>
+          </tr>
+          <tr>
+            <td><strong>ミッション</strong></td>
+            <td>AGIを日常生活に統合するプロアクティブなデジタルエージェントの開発</td>
+          </tr>
+          <tr>
+            <td><strong>主力製品</strong></td>
+            <td>AGI-0（モバイルAIパーソナルアシスタント）</td>
+          </tr>
+          <tr>
+            <td><strong>資金調達</strong></td>
+            <td>$5,000万（評価額$5億）の交渉中（2025年11月時点）</td>
+          </tr>
+          <tr>
+            <td><strong>チーム</strong></td>
+            <td>スタンフォード大、DeepMind出身者で構成</td>
+          </tr>
+        </table>
+
+        <div class="callout-box callout-box--accent" style="margin-top: 16px;">
+          <strong>REAL Bench：</strong>AGI Inc.が公開したウェブエージェント評価ベンチマーク。実際の人気サイトのレプリカで構成された「ミニインターネット」環境で、ブラウザエージェントの性能を標準化して評価。
+        </div>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">AGI-0の特徴と市場文脈</div>
+        <div class="flex-col" style="gap: 10px;">
+          <div class="insight-block">
+            <div class="insight-block__title">プロアクティブ・エージェント</div>
+            <div class="insight-block__body">ユーザーの行動パターンから学習し、明示的な指示なしにタスクを予測・実行。旅行予約、スケジュール管理などネイティブアプリと直接連携。</div>
+          </div>
+          <div class="insight-block insight-block--accent">
+            <div class="insight-block__title">2026年は「エージェントの年」</div>
+            <div class="insight-block__body">Sequoia Capitalが「2026年はAGI元年」と宣言。AIアプリは1日数回の利用から終日並列稼働へ。「IC（個人作業）からエージェントチーム管理」への移行を予測。</div>
+          </div>
+          <div class="insight-block insight-block--grey">
+            <div class="insight-block__title">業界全体のトレンド</div>
+            <div class="insight-block__body">企業の約80%がAIを少なくとも1つの重要業務に導入。ai.com等の自律型AIエージェントプラットフォームも相次いで登場し、エージェント市場の競争が激化。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Cerebral Valley, Sequoia Capital, Grokipedia（2025-2026年）</div>
+    <div class="slide__page">11</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 12: SECTION DIVIDER - Alibaba
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">05</div>
+    <div class="section__title">Alibaba、プレゼン自動生成AI「Qwen-Image-2.0」発表</div>
+    <div class="section__subtitle">PowerPointスライドや中国語書道まで高精度にテキストレンダリングする画像生成モデル</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 13: Alibaba AI詳細
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 6</div>
+    <div class="slide__action-title">Qwen-Image-2.0は1,000トークンのプロンプトからスライド・インフォグラフィック・ポスターを一括生成、テキスト描画精度で業界をリード</div>
+    <div class="grid-2col" style="margin-top: 12px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">Qwen-Image-2.0 技術仕様</div>
+        <table class="data-table">
+          <tr>
+            <th style="width: 40%;">仕様</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td><strong>モデルサイズ</strong></td>
+            <td>70億パラメータ</td>
+          </tr>
+          <tr>
+            <td><strong>最大プロンプト長</strong></td>
+            <td>1,000トークン</td>
+          </tr>
+          <tr>
+            <td><strong>出力解像度</strong></td>
+            <td>最大2K</td>
+          </tr>
+          <tr>
+            <td><strong>機能</strong></td>
+            <td>画像生成・編集の統合</td>
+          </tr>
+          <tr>
+            <td><strong>テキスト描画</strong></td>
+            <td>中国語書道・多言語対応</td>
+          </tr>
+          <tr>
+            <td><strong>構造レイアウト</strong></td>
+            <td>マルチパネル・PPTスライド対応</td>
+          </tr>
+          <tr>
+            <td><strong>提供形態</strong></td>
+            <td>Alibaba Cloud API（招待制ベータ）、Qwen Chat無料デモ</td>
+          </tr>
+        </table>
+
+        <div class="callout-box" style="margin-top: 12px;">
+          <strong>オープンソース戦略：</strong>Qwen-Image-2512はApache 2.0ライセンスで完全公開済。商用利用・改変・Fine-tuning・自社デプロイが自由。Hugging Face、ModelScope、Alibaba Cloudで利用可能（$0.075/画像）。
+        </div>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">差別化ポイントと競合環境</div>
+        <div class="flex-col" style="gap: 10px;">
+          <div class="insight-block">
+            <div class="insight-block__title">プレゼン自動生成</div>
+            <div class="insight-block__body">PowerPointスライドのタイムライン・埋め込み画像を正確にレンダリング。「画像の中に画像」を含む複雑な構図にも対応し、コンテンツ制作ワークフローを変革する可能性。</div>
+          </div>
+          <div class="insight-block insight-block--accent">
+            <div class="insight-block__title">テキスト描画の精度</div>
+            <div class="insight-block__body">従来の画像生成AIの弱点であったテキスト描画で大幅な改善。中国語古典書道から多言語タイポグラフィまで「ほぼ完璧な精度」を実現。</div>
+          </div>
+          <div class="insight-block insight-block--grey">
+            <div class="insight-block__title">競合激化</div>
+            <div class="insight-block__body">ByteDanceも同時期にAI画像生成ツールを発表。GoogleのNano Banana Pro（Gemini 3 Pro Image）との正面対決。中国のAI競争はチャットボットを超えマルチモーダル領域へ拡大。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: The Decoder, SCMP, OpenSourceForU, Gizmochina（2026年1-2月）</div>
+    <div class="slide__page">13</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 14: SECTION DIVIDER - MCP
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">06</div>
+    <div class="section__title">MCPを巡る議論に新展開</div>
+    <div class="section__subtitle">軽量版MCPとAgent Skillsの組み合わせが最適解として浮上</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 15: MCP詳細
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 7</div>
+    <div class="slide__action-title">MCP vs Agent Skillsの二項対立から「レイヤード・アーキテクチャ」へ ― Skills＝知識層、MCP＝実行層の組み合わせが主流に</div>
+    <div class="grid-2col" style="margin-top: 12px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">MCP と Agent Skills の比較</div>
+        <table class="data-table">
+          <tr>
+            <th style="width: 25%;">項目</th>
+            <th style="width: 37%;">MCP</th>
+            <th style="width: 38%;">Agent Skills</th>
+          </tr>
+          <tr>
+            <td><strong>役割</strong></td>
+            <td>外部ツール・データとの標準通信プロトコル</td>
+            <td>タスク実行の手順・知識をファイルとしてパッケージ化</td>
+          </tr>
+          <tr>
+            <td><strong>提供元</strong></td>
+            <td>Anthropic発、Linux Foundation管理</td>
+            <td>各社独自（Anthropic Skills, MS等）</td>
+          </tr>
+          <tr>
+            <td><strong>構成要素</strong></td>
+            <td>Resources, Prompts, Tools</td>
+            <td>SKILL.md＋テンプレート＋参照文書</td>
+          </tr>
+          <tr>
+            <td><strong>強み</strong></td>
+            <td>N×M統合問題を解決、標準化</td>
+            <td>軽量、ノーコード、メタデータ省トークン</td>
+          </tr>
+          <tr>
+            <td><strong>課題</strong></td>
+            <td>トークンコスト大（例：Sentry MCP〜8Kトークン）</td>
+            <td>単独では外部ツール接続不可</td>
+          </tr>
+        </table>
+
+        <div class="callout-box callout-box--accent" style="margin-top: 14px;">
+          <strong>核心的見解：</strong>「SkillsがMCPを置き換える」は誤り。<strong>Skillsはワークフローを記述し、MCPはその実行基盤を提供する。</strong>料理に例えれば、Skillsはレシピ、MCPは調理器具。両者の組み合わせで初めてエージェントは効果的に動作する。
+        </div>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">軽量化と組み合わせの具体策</div>
+        <div class="flex-col" style="gap: 10px;">
+          <div class="insight-block">
+            <div class="insight-block__title">SkillPort（新ツール）</div>
+            <div class="insight-block__body">Anthropicの「Tool Search Tool」パターンに着想。メタデータのみ先読み（〜100トークン/Skill）→必要時に詳細をオンデマンドロード。50以上のSkillsでもコンテキスト圧迫なし。Cursor, Copilot, Windsurf等に対応。</div>
+          </div>
+          <div class="insight-block insight-block--accent">
+            <div class="insight-block__title">MCPのコード実行最適化</div>
+            <div class="insight-block__body">Anthropic公式ガイダンスとして、ツール定義をファイルシステム上のコードとして公開し、オンデマンド読み込みで効率化。データのフィルタリングをMCPサーバー側で実行し、モデルへのトークン転送を最小化。</div>
+          </div>
+          <div class="insight-block insight-block--grey">
+            <div class="insight-block__title">ガバナンスの進化</div>
+            <div class="insight-block__body">MCPはLinux FoundationのAgentic AI Foundation（AAIF）に寄贈済。Anthropic、Block、OpenAIが共同設立。OAuth Resource Server、RFC 8707準拠のセキュリティ強化が2026年仕様に追加。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: cra.mr, LlamaIndex, Armin Ronacher, Block/Goose, Anthropic Engineering（2025-2026年）</div>
+    <div class="slide__page">15</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 16: SECTION DIVIDER - Turing
+       ========================================== -->
+  <section class="slide slide--section">
+    <div class="section__number">07</div>
+    <div class="section__title">自動運転Turing、GMOから32億円の資金調達</div>
+    <div class="section__subtitle">シリーズA累計153億円超 ― End-to-End自動運転AIで完全自動運転を目指す</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 17: Turing 詳細
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">EXHIBIT 8</div>
+    <div class="slide__action-title">GMOインターネットがTuringに32億円出資、生成AIクラウドサービスとの相互連携で自動運転開発を加速</div>
+    <div class="grid-2col" style="margin-top: 12px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">Turing 企業概要と資金調達</div>
+        <table class="data-table">
+          <tr>
+            <th style="width: 35%;">項目</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td><strong>本社</strong></td>
+            <td>東京都大田区</td>
+          </tr>
+          <tr>
+            <td><strong>事業</strong></td>
+            <td>完全自動運転システム開発</td>
+          </tr>
+          <tr>
+            <td><strong>技術</strong></td>
+            <td>E2E（End-to-End）自動運転AI</td>
+          </tr>
+          <tr>
+            <td><strong>今回の出資</strong></td>
+            <td>GMOインターネットから<strong>32億円</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Series A 1st Close</strong></td>
+            <td>合計153億円（エクイティ97.7億 + デット55億）</td>
+          </tr>
+          <tr>
+            <td><strong>リード投資家</strong></td>
+            <td>JICベンチャー・グロース、グローバル・ブレイン</td>
+          </tr>
+          <tr>
+            <td><strong>その他投資家</strong></td>
+            <td>デンソー、GMO、事業会社、銀行系CVC等</td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">GMO出資の狙いと技術的特徴</div>
+        <div class="flex-col" style="gap: 10px;">
+          <div class="insight-block">
+            <div class="insight-block__title">GMOとの提携内容</div>
+            <div class="insight-block__body">GMOは生成AI開発向けクラウドサービスをTuringに提供。Turing側からの知見・フィードバックを自社サービスの向上に活用する相互連携の枠組み。2月12日に出資の覚書を締結。</div>
+          </div>
+          <div class="insight-block insight-block--accent">
+            <div class="insight-block__title">E2E自動運転AI</div>
+            <div class="insight-block__body">環境認識→経路計画→運転制御を<strong>単一のAI</strong>で実行。大規模基盤モデルを統合し、あらゆる条件下で人間の代わりに運転操作を行う完全自動運転（Level 5相当）の実現を目標。</div>
+          </div>
+          <div class="insight-block insight-block--grey">
+            <div class="insight-block__title">今後の計画</div>
+            <div class="insight-block__body">2026年初頭にシリーズA 2nd Closeとして、同規模（150億円超）の追加資金調達を計画。技術開発と事業展開の両輪を加速させる方針。</div>
+          </div>
+        </div>
+
+        <div class="callout-box" style="margin-top: 12px;">
+          <strong>市場示唆：</strong>国内AI×自動運転スタートアップへの大型投資が加速。通信・IT大手（GMO）がAIインフラ提供者として自動運転エコシステムに参入する新たなトレンド。
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: 日本経済新聞、チューリング株式会社プレスリリース、東洋経済（2025年11月-2026年2月）</div>
+    <div class="slide__page">17</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 18: SUMMARY / KEY TAKEAWAYS
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">SUMMARY</div>
+    <div class="slide__action-title">今週のKey Takeaways：AI産業は「インフラ」「プラットフォーム」「エージェント」の3層で同時に加速</div>
+    <div class="grid-3col" style="margin-top: 16px;">
+      <div class="flex-col" style="gap: 12px;">
+        <div style="text-align: center; margin-bottom: 4px;">
+          <span class="tag tag--blue">インフラ層</span>
+        </div>
+        <div class="insight-block" style="flex: 1;">
+          <div class="insight-block__title">半導体スーパーサイクル</div>
+          <div class="insight-block__body">2026年世界半導体市場125兆円。HBM・EUV中心に設備投資が急加速。日本の装置メーカーもスーパーサイクルの中心に位置。</div>
+        </div>
+        <div class="insight-block insight-block--grey" style="flex: 1;">
+          <div class="insight-block__title">Turing × GMO</div>
+          <div class="insight-block__body">32億円出資でGMOのAIクラウドと自動運転技術が連携。国内AIインフラの新しいエコシステムが形成。</div>
+        </div>
+      </div>
+
+      <div class="flex-col" style="gap: 12px;">
+        <div style="text-align: center; margin-bottom: 4px;">
+          <span class="tag tag--teal">プラットフォーム層</span>
+        </div>
+        <div class="insight-block insight-block--accent" style="flex: 1;">
+          <div class="insight-block__title">Anthropicの急成長</div>
+          <div class="insight-block__body">3年連続10倍成長、$140億ランレート。$300億調達でIPO準備加速。Claude Codeが$25億規模に成長し、エンタープライズAIの主軸に。</div>
+        </div>
+        <div class="insight-block insight-block--accent" style="flex: 1;">
+          <div class="insight-block__title">Alibaba Qwen-Image-2.0</div>
+          <div class="insight-block__body">70億パラメータでプレゼン・インフォグラフィックを自動生成。オープンソース戦略でGoogle対抗。マルチモーダルAI競争が本格化。</div>
+        </div>
+      </div>
+
+      <div class="flex-col" style="gap: 12px;">
+        <div style="text-align: center; margin-bottom: 4px;">
+          <span class="tag tag--orange">エージェント層</span>
+        </div>
+        <div class="insight-block insight-block--warning" style="flex: 1;">
+          <div class="insight-block__title">AGI Inc. & エージェント元年</div>
+          <div class="insight-block__body">スマホ上でプロアクティブに動作するAIエージェントが登場。Sequoiaは2026年を「AGI元年」と宣言。IC→エージェントチーム管理への転換。</div>
+        </div>
+        <div class="insight-block insight-block--warning" style="flex: 1;">
+          <div class="insight-block__title">MCP × Agent Skills</div>
+          <div class="insight-block__body">二項対立を超え、Skills＝知識層 + MCP＝実行層のレイヤード・アーキテクチャが合意形成。SkillPortなどの統合ツールが登場。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box callout-box--warning" style="margin-top: 16px;">
+      <strong>注目すべきリスク：</strong>Amodei CEOが警告する「GDP高成長×高失業率」の併存シナリオは、AIの社会実装が加速する中で政策立案者・企業双方が真剣に向き合うべき課題。技術的楽観論と社会的準備の乖離が最大のリスク要因。
+    </div>
+    <div class="slide__source">Source: 本レポート各Exhibit参照</div>
+    <div class="slide__page">18</div>
+  </section>
+
+</div>
+</body>
+</html>
