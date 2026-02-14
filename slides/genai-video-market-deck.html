@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenAI Video Model Market Analysis | February 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       1. RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      background: #E2E8F0;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+      padding: 32px 0;
+    }
+
+    /* ============================================
+       2. SLIDE CONTAINER & PAGING
+       ============================================ */
+    .deck { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      padding: 48px 56px;
+      page-break-after: always;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    }
+
+    /* ============================================
+       3. TYPOGRAPHY
+       ============================================ */
+    .slide__action-title {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #1B3A5C;
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      line-height: 1.35;
+    }
+    .slide__exhibit {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: #1B3A5C;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 6px;
+    }
+    .slide__source {
+      position: absolute;
+      bottom: 14px; left: 56px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; color: #999;
+    }
+    .slide__confidential {
+      position: absolute;
+      bottom: 14px; right: 56px;
+      font-family: 'Inter', sans-serif;
+      font-size: 8px; color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .slide__page {
+      position: absolute;
+      bottom: 14px; right: 56px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; color: #bbb;
+    }
+    .body-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .body-text strong { color: #1a1a2e; }
+    .small-text { font-size: 11px; color: #666; line-height: 1.5; }
+    .label-text { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+
+    /* ============================================
+       4. LAYOUT UTILITIES
+       ============================================ */
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .grid-2col-40-60 { display: grid; grid-template-columns: 2fr 3fr; gap: 32px; }
+    .grid-2col-60-40 { display: grid; grid-template-columns: 3fr 2fr; gap: 32px; }
+    .grid-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .grid-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+    .flex-row { display: flex; gap: 24px; align-items: flex-start; }
+    .flex-col { display: flex; flex-direction: column; gap: 12px; }
+    .content-area { flex: 1; }
+
+    /* ============================================
+       5. DATA TABLES
+       ============================================ */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .data-table th {
+      background: #1B3A5C; color: #fff;
+      padding: 7px 10px; text-align: left;
+      font-weight: 600; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .data-table th:last-child { border-right: none; }
+    .data-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: #F7F8FA; }
+    .data-table .highlight-row td { background: #EBF0F7; font-weight: 600; }
+    .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ============================================
+       6. BAR CHART COMPONENTS
+       ============================================ */
+    .bar-chart { display: flex; flex-direction: column; gap: 6px; }
+    .bar-chart__row { display: flex; align-items: center; gap: 8px; }
+    .bar-chart__label { width: 100px; font-size: 10px; text-align: right; color: #4A5568; flex-shrink: 0; }
+    .bar-chart__track { flex: 1; height: 24px; background: #F7F8FA; border-radius: 2px; position: relative; }
+    .bar-chart__bar {
+      height: 100%; border-radius: 2px;
+      display: flex; align-items: center; padding-left: 8px;
+      font-size: 10px; font-weight: 600; color: #fff;
+      min-width: 30px;
+    }
+    .bar-chart__value { font-size: 10px; font-weight: 600; color: #333; margin-left: 8px; flex-shrink: 0; }
+
+    /* Grouped bar chart */
+    .grouped-bar { display: flex; flex-direction: column; gap: 14px; }
+    .grouped-bar__group { display: flex; flex-direction: column; gap: 3px; }
+    .grouped-bar__group-label {
+      font-size: 11px; font-weight: 600; color: #1a1a2e;
+      margin-bottom: 2px;
+    }
+    .grouped-bar__row { display: flex; align-items: center; gap: 6px; height: 18px; }
+    .grouped-bar__model-label { width: 70px; font-size: 9px; text-align: right; color: #666; flex-shrink: 0; }
+    .grouped-bar__track { flex: 1; height: 14px; background: #F7F8FA; border-radius: 1px; }
+    .grouped-bar__fill {
+      height: 100%; border-radius: 1px;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 4px; font-size: 8px; font-weight: 600; color: #fff;
+    }
+
+    /* ============================================
+       7. WATERFALL CHART
+       ============================================ */
+    .waterfall { display: flex; align-items: flex-end; gap: 8px; height: 220px; padding-bottom: 24px; position: relative; }
+    .waterfall__col { display: flex; flex-direction: column; align-items: center; flex: 1; height: 100%; justify-content: flex-end; }
+    .waterfall__bar {
+      width: 56px; border-radius: 2px 2px 0 0;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 4px; font-size: 10px; font-weight: 600; color: #fff;
+      position: relative;
+    }
+    .waterfall__label { font-size: 9px; color: #666; margin-top: 6px; text-align: center; }
+    .waterfall__bar--primary { background: #1B3A5C; }
+    .waterfall__bar--accent { background: #0D7377; }
+    .waterfall__bar--positive { background: #2D8B4E; }
+    .waterfall__bar--negative { background: #C0392B; }
+    .waterfall__bar--grey { background: #4A5568; }
+    .waterfall__bar--light { background: #94A3B8; }
+
+    /* ============================================
+       8. KPI CARDS
+       ============================================ */
+    .kpi-card {
+      text-align: center; padding: 16px 12px;
+      border: 1px solid #E2E8F0; border-radius: 4px;
+      background: #fff;
+    }
+    .kpi-card__number {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px; font-weight: 700; color: #1B3A5C;
+      line-height: 1.1;
+    }
+    .kpi-card__label {
+      font-size: 10px; color: #666;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-top: 6px; line-height: 1.3;
+    }
+    .kpi-card--accent { border-left: 4px solid #0D7377; }
+    .kpi-card--primary { border-left: 4px solid #1B3A5C; }
+
+    /* ============================================
+       9. CALLOUT BOX
+       ============================================ */
+    .callout-box {
+      background: #F7F8FA;
+      border-left: 4px solid #1B3A5C;
+      padding: 12px 16px;
+      font-size: 12px; line-height: 1.5;
+      color: #333;
+    }
+    .callout-box--accent { border-left-color: #0D7377; }
+    .callout-box strong { color: #1a1a2e; }
+
+    /* ============================================
+       10. HARVEY BALLS
+       ============================================ */
+    .harvey-ball {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 1.5px solid #333; display: inline-block;
+      vertical-align: middle;
+    }
+    .harvey-ball--full { background: #333; }
+    .harvey-ball--three-quarter { background: conic-gradient(#333 270deg, transparent 270deg); }
+    .harvey-ball--half { background: conic-gradient(#333 180deg, transparent 180deg); }
+    .harvey-ball--quarter { background: conic-gradient(#333 90deg, transparent 90deg); }
+    .harvey-ball--empty { background: transparent; }
+
+    /* ============================================
+       11. 2x2 MATRIX
+       ============================================ */
+    .matrix-container { position: relative; }
+    .matrix-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px; background: #CBD5E0;
+      border: 1px solid #CBD5E0;
+    }
+    .matrix-2x2__cell {
+      background: #fff; padding: 14px;
+      font-size: 10px; color: #999;
+      display: flex; align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .matrix-marker {
+      position: absolute;
+      padding: 4px 8px;
+      font-size: 10px; font-weight: 600;
+      border-radius: 3px;
+      white-space: nowrap;
+      z-index: 10;
+      border: 1.5px solid;
+    }
+    .matrix-marker--primary { background: #EBF0F7; color: #1B3A5C; border-color: #1B3A5C; }
+    .matrix-marker--accent { background: #E6F7F7; color: #0D7377; border-color: #0D7377; }
+    .matrix-marker--grey { background: #F7F8FA; color: #4A5568; border-color: #4A5568; }
+    .matrix-marker--negative { background: #FDE8E8; color: #C0392B; border-color: #C0392B; }
+
+    .matrix-axis {
+      font-size: 10px; font-weight: 600; color: #4A5568;
+      text-transform: uppercase; letter-spacing: 0.8px;
+    }
+    .matrix-axis--x { text-align: center; margin-top: 8px; }
+    .matrix-axis--y {
+      writing-mode: vertical-lr; transform: rotate(180deg);
+      position: absolute; left: -24px; top: 50%;
+      transform: rotate(180deg) translateX(50%);
+    }
+
+    /* ============================================
+       12. INSIGHT COLUMNS
+       ============================================ */
+    .insight-block {
+      background: #F7F8FA;
+      border-top: 3px solid #1B3A5C;
+      padding: 16px;
+    }
+    .insight-block--accent { border-top-color: #0D7377; }
+    .insight-block--grey { border-top-color: #4A5568; }
+    .insight-block__number {
+      font-size: 28px; font-weight: 700; color: #1B3A5C;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .insight-block__title {
+      font-size: 13px; font-weight: 700; color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    .insight-block__body { font-size: 11px; color: #4A5568; line-height: 1.5; }
+
+    /* ============================================
+       13. COVER SLIDE STYLES
+       ============================================ */
+    .slide--cover {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 72px 80px;
+    }
+    .slide--cover .cover__band {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 6px; background: #1B3A5C;
+    }
+    .slide--cover .cover__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 36px; font-weight: 700; color: #1a1a2e;
+      line-height: 1.25; max-width: 900px;
+      margin-bottom: 16px;
+    }
+    .slide--cover .cover__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; color: #4A5568;
+      font-weight: 400; margin-bottom: 8px;
+    }
+    .slide--cover .cover__date {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; color: #999;
+      margin-top: 4px;
+    }
+    .slide--cover .cover__divider {
+      width: 80px; height: 2px;
+      background: #1B3A5C; margin: 20px 0;
+    }
+    .slide--cover .cover__footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; color: #bbb;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      position: absolute; bottom: 40px; left: 80px;
+    }
+
+    /* ============================================
+       14. BULLET LIST
+       ============================================ */
+    .bullet-list { list-style: none; padding: 0; }
+    .bullet-list li {
+      font-size: 13px; line-height: 1.6; color: #333;
+      padding: 8px 0; padding-left: 16px;
+      border-bottom: 1px solid #F0F0F0;
+      position: relative;
+    }
+    .bullet-list li::before {
+      content: '';
+      position: absolute; left: 0; top: 16px;
+      width: 6px; height: 6px;
+      background: #1B3A5C; border-radius: 1px;
+    }
+    .bullet-list li:last-child { border-bottom: none; }
+    .bullet-list li strong { color: #1a1a2e; }
+
+    /* ============================================
+       15. LEGEND
+       ============================================ */
+    .legend { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+    .legend__item { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #666; }
+    .legend__swatch { width: 12px; height: 10px; border-radius: 1px; }
+
+    /* ============================================
+       16. PRINT STYLES
+       ============================================ */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .deck { gap: 0; }
+      .slide { box-shadow: none; margin: 0; }
+      @page { size: 1280px 720px landscape; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- ==========================================
+       SLIDE 1: COVER
+       ========================================== -->
+  <section class="slide slide--cover">
+    <div class="cover__band"></div>
+    <div class="cover__title">The GenAI Video Generation Landscape</div>
+    <div class="cover__subtitle">Market Dynamics, Technical Differentiation, and Strategic Positioning</div>
+    <div class="cover__divider"></div>
+    <div class="cover__date">Competitive Analysis &amp; Market Outlook &nbsp;|&nbsp; February 2026</div>
+    <div class="cover__footer">Confidential &mdash; For Discussion Purposes Only</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 2: EXECUTIVE SUMMARY
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 1</div>
+    <div class="slide__action-title">The GenAI video market is inflecting rapidly, with Seedance 2.0 establishing a new quality benchmark while pricing pressure commoditizes basic generation</div>
+    <ul class="bullet-list" style="margin-top: 8px;">
+      <li><strong>Market inflection:</strong> The broader AI video market is growing at a 32.2% CAGR, from $3.86B in 2024 to a projected $42.29B by 2033, driven by enterprise content automation, creator tools, and a 342% year-over-year increase in adoption.</li>
+      <li><strong>Quality leadership shift:</strong> ByteDance's Seedance 2.0 leads structured quality benchmarks with an average score of 8.2/10, excelling in motion flow (9/10) and camera control (9/10), while offering competitive pricing at ~$0.60 per 10-second clip.</li>
+      <li><strong>Architecture convergence:</strong> Diffusion Transformer (DiT) variants have become the consensus architecture, but Seedance's dual-branch audio-visual co-generation and Wan2.2's Mixture-of-Experts approach represent meaningful architectural differentiation.</li>
+      <li><strong>Elo vs. structured benchmarks diverge:</strong> Runway Gen-4.5 leads community Elo rankings (1,247) while scoring differently on structured benchmarks, suggesting aesthetic appeal factors beyond raw technical quality drive user preference.</li>
+    </ul>
+    <div class="slide__source">Source: Grand View Research, Verified Market Research, Lanta AI Benchmarks, VBench Community Rankings, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 3: MARKET SIZING
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 2</div>
+    <div class="slide__action-title">The AI video generation market will grow 11x over the next decade, driven by enterprise content automation and creator tool adoption</div>
+    <div class="grid-2col-60-40" style="margin-top: 8px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">Broader AI Video Market Size (USD Billions)</div>
+        <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 620px;">
+          <!-- Grid lines -->
+          <line x1="60" y1="20" x2="60" y2="210" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="60" y1="210" x2="600" y2="210" stroke="#4A5568" stroke-width="1"/>
+          <!-- Y-axis labels -->
+          <text x="55" y="215" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="end">$0</text>
+          <line x1="60" y1="163" x2="600" y2="163" stroke="#F0F0F0" stroke-width="1"/>
+          <text x="55" y="167" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="end">$10B</text>
+          <line x1="60" y1="115" x2="600" y2="115" stroke="#F0F0F0" stroke-width="1"/>
+          <text x="55" y="119" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="end">$20B</text>
+          <line x1="60" y1="68" x2="600" y2="68" stroke="#F0F0F0" stroke-width="1"/>
+          <text x="55" y="72" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="end">$30B</text>
+          <line x1="60" y1="20" x2="600" y2="20" stroke="#F0F0F0" stroke-width="1"/>
+          <text x="55" y="24" font-family="Inter, sans-serif" font-size="9" fill="#999" text-anchor="end">$40B</text>
+          <!-- Bars: 2024, 2025, 2027(P), 2030(P), 2033(P) -->
+          <!-- 2024: $3.86B -->
+          <rect x="90" y="192" width="60" height="18" fill="#1B3A5C" rx="2"/>
+          <text x="120" y="188" font-family="Inter, sans-serif" font-size="10" fill="#1B3A5C" text-anchor="middle" font-weight="600">$3.9B</text>
+          <text x="120" y="230" font-family="Inter, sans-serif" font-size="9" fill="#666" text-anchor="middle">2024</text>
+          <!-- 2025: $4.2B -->
+          <rect x="190" y="190" width="60" height="20" fill="#1B3A5C" rx="2"/>
+          <text x="220" y="186" font-family="Inter, sans-serif" font-size="10" fill="#1B3A5C" text-anchor="middle" font-weight="600">$4.2B</text>
+          <text x="220" y="230" font-family="Inter, sans-serif" font-size="9" fill="#666" text-anchor="middle">2025</text>
+          <!-- 2027P: $12.8B -->
+          <rect x="290" y="149" width="60" height="61" fill="#0D7377" rx="2"/>
+          <text x="320" y="145" font-family="Inter, sans-serif" font-size="10" fill="#0D7377" text-anchor="middle" font-weight="600">$12.8B</text>
+          <text x="320" y="230" font-family="Inter, sans-serif" font-size="9" fill="#666" text-anchor="middle">2027P</text>
+          <!-- 2030P: ~$25B est -->
+          <rect x="390" y="91" width="60" height="119" fill="#0D7377" rx="2" opacity="0.7"/>
+          <text x="420" y="87" font-family="Inter, sans-serif" font-size="10" fill="#0D7377" text-anchor="middle" font-weight="600">~$25B</text>
+          <text x="420" y="230" font-family="Inter, sans-serif" font-size="9" fill="#666" text-anchor="middle">2030P</text>
+          <!-- 2033P: $42.29B -->
+          <rect x="490" y="11" width="60" height="199" fill="#1B3A5C" rx="2" opacity="0.85"/>
+          <text x="520" y="8" font-family="Inter, sans-serif" font-size="10" fill="#1B3A5C" text-anchor="middle" font-weight="600">$42.3B</text>
+          <text x="520" y="230" font-family="Inter, sans-serif" font-size="9" fill="#666" text-anchor="middle">2033P</text>
+          <!-- CAGR arrow -->
+          <line x1="120" y1="245" x2="520" y2="245" stroke="#C0392B" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <text x="320" y="258" font-family="Inter, sans-serif" font-size="10" fill="#C0392B" text-anchor="middle" font-weight="600">CAGR 32.2%</text>
+          <defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#C0392B"/></marker></defs>
+        </svg>
+      </div>
+      <div class="flex-col" style="gap: 16px;">
+        <div class="kpi-card kpi-card--primary">
+          <div class="kpi-card__number">32.2%</div>
+          <div class="kpi-card__label">CAGR 2025&ndash;2033<br/>Broader AI Video Market</div>
+        </div>
+        <div class="kpi-card kpi-card--accent">
+          <div class="kpi-card__number">342%</div>
+          <div class="kpi-card__label">Year-over-Year<br/>Adoption Increase (2025)</div>
+        </div>
+        <div class="kpi-card kpi-card--primary">
+          <div class="kpi-card__number">80&ndash;95%</div>
+          <div class="kpi-card__label">Reduction in Per-Video<br/>Production Costs</div>
+        </div>
+        <div class="callout-box callout-box--accent" style="font-size: 11px;">
+          <strong>Note:</strong> Narrow "AI video generator" market ($554.9M in 2024) grows at 19.9% CAGR. Broader market includes analytics, editing, and CV tools.
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Grand View Research, MarketsandMarkets, Verified Market Research, Fortune Business Insights (2024-2025 estimates)</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 4: COST ECONOMICS
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 3</div>
+    <div class="slide__action-title">AI video generation has reduced per-video production costs by 80&ndash;95%, fundamentally restructuring the content creation value chain</div>
+    <div class="grid-2col" style="margin-top: 8px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 12px;">Cost Per Minute of Video Content (USD, Indexed)</div>
+        <div class="waterfall" style="height: 240px;">
+          <div class="waterfall__col">
+            <div class="waterfall__bar waterfall__bar--grey" style="height: 200px;">
+              <span style="font-size: 9px;">$5,000</span>
+            </div>
+            <div class="waterfall__label">Traditional<br/>Production</div>
+          </div>
+          <div class="waterfall__col">
+            <div class="waterfall__bar waterfall__bar--primary" style="height: 140px;">
+              <span style="font-size: 9px;">$3,500</span>
+            </div>
+            <div class="waterfall__label">Stock +<br/>Templates</div>
+          </div>
+          <div class="waterfall__col">
+            <div class="waterfall__bar waterfall__bar--accent" style="height: 56px;">
+              <span style="font-size: 9px;">$1,400</span>
+            </div>
+            <div class="waterfall__label">AI-Assisted<br/>(2024)</div>
+          </div>
+          <div class="waterfall__col">
+            <div class="waterfall__bar waterfall__bar--positive" style="height: 20px;">
+              <span style="font-size: 8px;">$250</span>
+            </div>
+            <div class="waterfall__label">Fully AI<br/>(2025)</div>
+          </div>
+          <div class="waterfall__col">
+            <div class="waterfall__bar waterfall__bar--positive" style="height: 10px;">
+              <span style="font-size: 8px; position: relative; top: -14px; color: #2D8B4E;">$100</span>
+            </div>
+            <div class="waterfall__label">Fully AI<br/>(2026E)</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col" style="gap: 14px;">
+        <div class="callout-box">
+          <strong>Cost-per-clip comparison (10s, 1080p, with audio):</strong><br/>
+          The most affordable models (Kling at $0.50/clip) now produce content that required $500+ of professional production just two years ago &mdash; a <strong>1,000x cost reduction</strong>.
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Cost / 10s Clip</th>
+              <th>Cost / Minute</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Kling 3.0</td><td class="num">$0.50</td><td class="num">$3.00</td></tr>
+            <tr><td>Seedance 2.0</td><td class="num">$0.60</td><td class="num">$3.60</td></tr>
+            <tr><td>Sora 2</td><td class="num">$1.00</td><td class="num">$6.00</td></tr>
+            <tr><td>Veo 3.1</td><td class="num">$2.50</td><td class="num">$15.00</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-box callout-box--accent" style="font-size: 11px;">
+          <strong>Productivity impact:</strong> Individual creators now produce 5&ndash;10x more video than their 2024 counterparts, enabled by sub-$1 per-clip economics.
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Industry reports, WaveSpeedAI, aifreeforever.com (2025-2026 pricing data)</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 5: COMPETITIVE LANDSCAPE
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 4</div>
+    <div class="slide__action-title">Eight major players span four strategic archetypes, from vertically integrated platforms to open-source challengers</div>
+    <table class="data-table" style="margin-top: 8px; font-size: 10px;">
+      <thead>
+        <tr>
+          <th style="width: 100px;">Model</th>
+          <th>Developer</th>
+          <th>Architecture</th>
+          <th>Max Duration</th>
+          <th>Resolution</th>
+          <th>Native Audio</th>
+          <th>FPS</th>
+          <th>Multi-Modal Input</th>
+          <th>~Cost/Clip</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Seedance 2.0</strong></td>
+          <td>ByteDance</td>
+          <td>Dual-Branch DiT</td>
+          <td>15s</td>
+          <td>1080p / 2K</td>
+          <td style="color: #2D8B4E; font-weight: 600;">Simultaneous</td>
+          <td class="num">24</td>
+          <td>9 img + 3 vid + 3 aud</td>
+          <td class="num">$0.60</td>
+        </tr>
+        <tr>
+          <td><strong>Kling 3.0</strong></td>
+          <td>Kuaishou</td>
+          <td>DiT</td>
+          <td>10s</td>
+          <td>4K @ 60fps</td>
+          <td style="color: #2D8B4E; font-weight: 600;">Yes</td>
+          <td class="num">30-60</td>
+          <td>Text + 1-2 images</td>
+          <td class="num">$0.50</td>
+        </tr>
+        <tr>
+          <td><strong>Sora 2</strong></td>
+          <td>OpenAI</td>
+          <td>Proprietary</td>
+          <td>12s (35s Pro)</td>
+          <td>1080p</td>
+          <td style="color: #2D8B4E; font-weight: 600;">Yes</td>
+          <td class="num">24-30</td>
+          <td>Text + 1 image</td>
+          <td class="num">$1.00</td>
+        </tr>
+        <tr>
+          <td><strong>Veo 3.1</strong></td>
+          <td>Google DeepMind</td>
+          <td>Proprietary</td>
+          <td>8s</td>
+          <td>1080p</td>
+          <td style="color: #2D8B4E; font-weight: 600;">Best-in-class</td>
+          <td class="num">24</td>
+          <td>Text + 1-2 img/vid</td>
+          <td class="num">$2.50</td>
+        </tr>
+        <tr>
+          <td><strong>Runway Gen-4.5</strong></td>
+          <td>Runway</td>
+          <td>Proprietary</td>
+          <td>10s</td>
+          <td>4K</td>
+          <td style="color: #2D8B4E; font-weight: 600;">Yes</td>
+          <td class="num">24</td>
+          <td>Text + image</td>
+          <td class="num">~$0.80</td>
+        </tr>
+        <tr>
+          <td><strong>Luma Ray3</strong></td>
+          <td>Luma AI</td>
+          <td>Hi-Fi Diffusion</td>
+          <td>~10s</td>
+          <td>4K HDR</td>
+          <td style="color: #999;">&mdash;</td>
+          <td class="num">&mdash;</td>
+          <td>Text + image</td>
+          <td class="num">~$0.70</td>
+        </tr>
+        <tr>
+          <td><strong>Pika 2.5</strong></td>
+          <td>Pika</td>
+          <td>Proprietary</td>
+          <td>~8s</td>
+          <td>1080p</td>
+          <td style="color: #999;">&mdash;</td>
+          <td class="num">&mdash;</td>
+          <td>Text + img + ingredients</td>
+          <td class="num">~$0.40</td>
+        </tr>
+        <tr style="background: #F7F8FA;">
+          <td><strong>Wan2.2</strong></td>
+          <td>Alibaba</td>
+          <td>MoE DiT (A14B)</td>
+          <td>Variable</td>
+          <td>1080p</td>
+          <td style="color: #999;">&mdash;</td>
+          <td class="num">&mdash;</td>
+          <td>Text + image</td>
+          <td class="num" style="color: #2D8B4E; font-weight: 600;">Free (OSS)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top: 14px;" class="grid-4col">
+      <div class="callout-box" style="font-size: 10px; padding: 8px 12px;">
+        <strong style="color: #1B3A5C;">Platform Leaders</strong><br/>Seedance, Kling, Sora, Veo<br/><span style="color: #999;">Full-stack, native audio</span>
+      </div>
+      <div class="callout-box" style="font-size: 10px; padding: 8px 12px;">
+        <strong style="color: #0D7377;">Creator-First</strong><br/>Runway, Luma, Pika<br/><span style="color: #999;">UX-focused, workflow tools</span>
+      </div>
+      <div class="callout-box callout-box--accent" style="font-size: 10px; padding: 8px 12px;">
+        <strong style="color: #0D7377;">Open-Source</strong><br/>Wan2.2, LTX-2, HunyuanVideo<br/><span style="color: #999;">Free, customizable, local</span>
+      </div>
+      <div class="callout-box" style="font-size: 10px; padding: 8px 12px; border-left-color: #4A5568;">
+        <strong style="color: #4A5568;">Emerging</strong><br/>Pika (effects), Luma (HDR)<br/><span style="color: #999;">Niche differentiation</span>
+      </div>
+    </div>
+    <div class="slide__source">Source: Company announcements, WaveSpeedAI, Pinggy, aifreeforever.com, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 6: ARCHITECTURE COMPARISON
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 5</div>
+    <div class="slide__action-title">Diffusion Transformers are the consensus architecture, but ByteDance's dual-branch approach uniquely enables native audio-visual co-generation</div>
+    <div class="grid-2col" style="margin-top: 8px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">Architecture Variant Map</div>
+        <table class="data-table" style="font-size: 10px;">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Base Architecture</th>
+              <th>Key Innovation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Seedance 2.0</strong></td>
+              <td>Dual-Branch DiT</td>
+              <td>Audio+video co-generation in single pass</td>
+            </tr>
+            <tr>
+              <td><strong>Kling 3.0</strong></td>
+              <td>DiT</td>
+              <td>Native 4K@60fps, multi-shot</td>
+            </tr>
+            <tr>
+              <td><strong>Wan2.2</strong></td>
+              <td>MoE DiT (A14B)</td>
+              <td>2-expert denoising specialization</td>
+            </tr>
+            <tr>
+              <td><strong>Sora 2</strong></td>
+              <td>Proprietary</td>
+              <td>Long-take coherence, physics</td>
+            </tr>
+            <tr>
+              <td><strong>Veo 3.1</strong></td>
+              <td>Proprietary</td>
+              <td>Best audio sync, MovieGenBench #1</td>
+            </tr>
+            <tr>
+              <td><strong>Runway Gen-4.5</strong></td>
+              <td>Proprietary (Gen-4)</td>
+              <td>Pre-training efficiency, Elo #1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="label-text" style="margin-bottom: 10px;">Capability Matrix</div>
+        <table class="data-table" style="font-size: 10px;">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th style="text-align:center;">Seedance</th>
+              <th style="text-align:center;">Kling</th>
+              <th style="text-align:center;">Sora</th>
+              <th style="text-align:center;">Veo</th>
+              <th style="text-align:center;">Runway</th>
+              <th style="text-align:center;">Wan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Native Audio</td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--three-quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--three-quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+            </tr>
+            <tr>
+              <td>Multi-Modal Input</td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--quarter"></span></td>
+            </tr>
+            <tr>
+              <td>4K+ Resolution</td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+            </tr>
+            <tr>
+              <td>Physics Sim</td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--three-quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--three-quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--three-quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--three-quarter"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+            </tr>
+            <tr>
+              <td>Open Source</td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--empty"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+            </tr>
+            <tr>
+              <td>Emotion Control</td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--full"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--half"></span></td>
+              <td style="text-align:center;"><span class="harvey-ball harvey-ball--quarter"></span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 8px; display: flex; gap: 12px; font-size: 9px; color: #666;">
+          <span><span class="harvey-ball harvey-ball--full" style="width: 10px; height: 10px;"></span> Full</span>
+          <span><span class="harvey-ball harvey-ball--three-quarter" style="width: 10px; height: 10px;"></span> Strong</span>
+          <span><span class="harvey-ball harvey-ball--half" style="width: 10px; height: 10px;"></span> Moderate</span>
+          <span><span class="harvey-ball harvey-ball--quarter" style="width: 10px; height: 10px;"></span> Limited</span>
+          <span><span class="harvey-ball harvey-ball--empty" style="width: 10px; height: 10px;"></span> None</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Company technical documentation, SitePoint, DataCamp, Runway Research, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 7: QUALITY BENCHMARKING (SCORES)
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 6</div>
+    <div class="slide__action-title">Seedance 2.0 leads across all five quality dimensions, with camera control and motion flow as primary differentiators</div>
+    <div class="grid-2col-60-40" style="margin-top: 4px;">
+      <div>
+        <div class="legend">
+          <div class="legend__item"><div class="legend__swatch" style="background: #94A3B8;"></div>Kling 2.1</div>
+          <div class="legend__item"><div class="legend__swatch" style="background: #4A5568;"></div>Wan 2.2</div>
+          <div class="legend__item"><div class="legend__swatch" style="background: #0D7377;"></div>Veo 3</div>
+          <div class="legend__item"><div class="legend__swatch" style="background: #1B3A5C;"></div>Seedance 2.0</div>
+        </div>
+        <div class="grouped-bar">
+          <!-- Edge Stability -->
+          <div class="grouped-bar__group">
+            <div class="grouped-bar__group-label">Edge Stability</div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Kling</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 50%; background: #94A3B8;">5</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Wan</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 60%; background: #4A5568;">6</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Veo</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 70%; background: #0D7377;">7</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Seedance</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 80%; background: #1B3A5C;">8</div></div>
+            </div>
+          </div>
+          <!-- Motion Flow -->
+          <div class="grouped-bar__group">
+            <div class="grouped-bar__group-label">Motion Flow</div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Kling</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 50%; background: #94A3B8;">5</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Wan</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 60%; background: #4A5568;">6</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Veo</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 70%; background: #0D7377;">7</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Seedance</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 90%; background: #1B3A5C;">9</div></div>
+            </div>
+          </div>
+          <!-- Style Drift -->
+          <div class="grouped-bar__group">
+            <div class="grouped-bar__group-label">Style Drift Resistance</div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Kling</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 40%; background: #94A3B8;">4</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Wan</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 60%; background: #4A5568;">6</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Veo</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 70%; background: #0D7377;">7</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Seedance</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 80%; background: #1B3A5C;">8</div></div>
+            </div>
+          </div>
+          <!-- Face Consistency -->
+          <div class="grouped-bar__group">
+            <div class="grouped-bar__group-label">Face Consistency</div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Kling</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 40%; background: #94A3B8;">4</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Wan</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 50%; background: #4A5568;">5</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Veo</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 70%; background: #0D7377;">7</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Seedance</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 70%; background: #1B3A5C;">7</div></div>
+            </div>
+          </div>
+          <!-- Camera Control -->
+          <div class="grouped-bar__group">
+            <div class="grouped-bar__group-label">Camera Control</div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Kling</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 40%; background: #94A3B8;">4</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Wan</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 50%; background: #4A5568;">5</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Veo</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 70%; background: #0D7377;">7</div></div>
+            </div>
+            <div class="grouped-bar__row">
+              <div class="grouped-bar__model-label">Seedance</div>
+              <div class="grouped-bar__track"><div class="grouped-bar__fill" style="width: 90%; background: #1B3A5C;">9</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col" style="gap: 12px;">
+        <div class="label-text">Composite Quality Score (Average / 10)</div>
+        <table class="data-table" style="font-size: 11px;">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th style="text-align: right;">Avg Score</th>
+              <th style="text-align: right;">Delta vs. Leader</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td>Seedance 2.0</td>
+              <td class="num" style="color: #1B3A5C; font-weight: 700;">8.2</td>
+              <td class="num">&mdash;</td>
+            </tr>
+            <tr>
+              <td>Veo 3</td>
+              <td class="num">7.0</td>
+              <td class="num" style="color: #C0392B;">-1.2</td>
+            </tr>
+            <tr>
+              <td>Wan 2.2</td>
+              <td class="num">5.6</td>
+              <td class="num" style="color: #C0392B;">-2.6</td>
+            </tr>
+            <tr>
+              <td>Kling 2.1</td>
+              <td class="num">4.4</td>
+              <td class="num" style="color: #C0392B;">-3.8</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout-box" style="font-size: 11px;">
+          <strong>Key insight:</strong> Seedance 2.0's largest leads are in <strong>motion flow</strong> (+2 vs. Veo, +4 vs. Kling) and <strong>camera control</strong> (+2 vs. Veo, +5 vs. Kling) &mdash; the two dimensions most critical for cinematic and narrative content.
+        </div>
+        <div class="callout-box callout-box--accent" style="font-size: 10px;">
+          <strong>Methodology:</strong> 50+ generations per model, identical 15-category prompt set, 4s/720p/24fps, 2 independent reviewers, normalized 0-10 scale.
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Lanta AI Quantitative Benchmarks, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 8: QUALITY BENCHMARKING (ELO)
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 7</div>
+    <div class="slide__action-title">Runway Gen-4.5 leads community Elo rankings, revealing that aesthetic preference and structured quality capture different competitive dynamics</div>
+    <div class="grid-2col" style="margin-top: 8px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 12px;">Community Elo Rankings (VBench, Feb 2026)</div>
+        <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 480px;">
+          <!-- Grid -->
+          <line x1="140" y1="20" x2="140" y2="200" stroke="#E2E8F0" stroke-width="1"/>
+          <line x1="140" y1="200" x2="460" y2="200" stroke="#4A5568" stroke-width="0.5"/>
+          <!-- Scale labels: 1100 to 1300 => 0 to 300px mapped to x:140 to x:440 -->
+          <text x="140" y="215" font-family="Inter, sans-serif" font-size="8" fill="#999" text-anchor="middle">1,100</text>
+          <text x="215" y="215" font-family="Inter, sans-serif" font-size="8" fill="#999" text-anchor="middle">1,150</text>
+          <text x="290" y="215" font-family="Inter, sans-serif" font-size="8" fill="#999" text-anchor="middle">1,200</text>
+          <text x="365" y="215" font-family="Inter, sans-serif" font-size="8" fill="#999" text-anchor="middle">1,250</text>
+          <text x="440" y="215" font-family="Inter, sans-serif" font-size="8" fill="#999" text-anchor="middle">1,300</text>
+          <!-- Gridlines -->
+          <line x1="215" y1="20" x2="215" y2="200" stroke="#F0F0F0" stroke-width="0.5"/>
+          <line x1="290" y1="20" x2="290" y2="200" stroke="#F0F0F0" stroke-width="0.5"/>
+          <line x1="365" y1="20" x2="365" y2="200" stroke="#F0F0F0" stroke-width="0.5"/>
+          <line x1="440" y1="20" x2="440" y2="200" stroke="#F0F0F0" stroke-width="0.5"/>
+          <!-- Bar 1: Runway Gen-4.5 = 1247 => (1247-1100)/200*300 = 220.5px -->
+          <text x="135" y="52" font-family="Inter, sans-serif" font-size="10" fill="#333" text-anchor="end" font-weight="600">Runway Gen-4.5</text>
+          <rect x="140" y="35" width="220" height="28" fill="#1B3A5C" rx="2"/>
+          <text x="366" y="54" font-family="Inter, sans-serif" font-size="11" fill="#1B3A5C" font-weight="700">1,247</text>
+          <!-- Bar 2: Veo 3 = 1226 => (1226-1100)/200*300 = 189px -->
+          <text x="135" y="97" font-family="Inter, sans-serif" font-size="10" fill="#333" text-anchor="end" font-weight="600">Veo 3</text>
+          <rect x="140" y="80" width="189" height="28" fill="#0D7377" rx="2"/>
+          <text x="335" y="99" font-family="Inter, sans-serif" font-size="11" fill="#0D7377" font-weight="700">1,226</text>
+          <!-- Bar 3: Kling = 1225 => 187.5px -->
+          <text x="135" y="142" font-family="Inter, sans-serif" font-size="10" fill="#333" text-anchor="end" font-weight="600">Kling</text>
+          <rect x="140" y="125" width="188" height="28" fill="#4A5568" rx="2"/>
+          <text x="334" y="144" font-family="Inter, sans-serif" font-size="11" fill="#4A5568" font-weight="700">1,225</text>
+          <!-- Bar 4: Sora 2 = 1206 => 159px -->
+          <text x="135" y="187" font-family="Inter, sans-serif" font-size="10" fill="#333" text-anchor="end" font-weight="600">Sora 2</text>
+          <rect x="140" y="170" width="159" height="28" fill="#94A3B8" rx="2"/>
+          <text x="305" y="189" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8" font-weight="700">1,206</text>
+        </svg>
+      </div>
+      <div class="flex-col" style="gap: 12px;">
+        <div class="label-text">Elo vs. Structured Benchmark Comparison</div>
+        <table class="data-table" style="font-size: 11px;">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th style="text-align: right;">Elo Rank</th>
+              <th style="text-align: right;">Quality Rank</th>
+              <th style="text-align: right;">Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Runway Gen-4.5</td>
+              <td class="num" style="font-weight: 700;">#1</td>
+              <td class="num" style="color: #999;">N/A*</td>
+              <td class="num">&mdash;</td>
+            </tr>
+            <tr>
+              <td>Veo 3</td>
+              <td class="num">#2</td>
+              <td class="num">#2</td>
+              <td class="num" style="color: #2D8B4E;">Aligned</td>
+            </tr>
+            <tr>
+              <td>Kling</td>
+              <td class="num">#3</td>
+              <td class="num">#4</td>
+              <td class="num" style="color: #C0392B;">+1 rank</td>
+            </tr>
+            <tr>
+              <td>Sora 2</td>
+              <td class="num">#4</td>
+              <td class="num" style="color: #999;">N/A*</td>
+              <td class="num">&mdash;</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Seedance 2.0</td>
+              <td class="num" style="color: #999;">Not yet rated</td>
+              <td class="num" style="font-weight: 700;">#1</td>
+              <td class="num">&mdash;</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 9px; color: #999;">*Not included in Lanta AI structured benchmark set</div>
+        <div class="callout-box" style="font-size: 11px;">
+          <strong>Interpretation:</strong> Elo ratings capture user aesthetic preference in head-to-head comparisons, while structured benchmarks measure technical quality across specific dimensions. The divergence suggests that <strong>visual "polish" and motion aesthetics</strong> drive user preference beyond raw technical scores.
+        </div>
+        <div class="callout-box callout-box--accent" style="font-size: 11px;">
+          <strong>Seedance 2.0 caveat:</strong> Launched Feb 8, 2026 &mdash; not yet represented in community Elo rankings. Structured benchmark data suggests it would rank competitively.
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: VBench Community Rankings, aifreeforever.com, Lanta AI, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 9: PRICING & VALUE
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 8</div>
+    <div class="slide__action-title">A 5x pricing spread exists across leading models, with Seedance 2.0 offering the strongest quality-to-price ratio</div>
+    <div class="grid-2col" style="margin-top: 8px;">
+      <div>
+        <div class="label-text" style="margin-bottom: 12px;">Cost per 10-Second Clip (1080p, with audio)</div>
+        <div class="bar-chart" style="gap: 10px;">
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">Pika 2.5</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 16%; background: #94A3B8;">$0.40</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">Kling 3.0</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 20%; background: #4A5568;">$0.50</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label" style="font-weight: 700; color: #1B3A5C;">Seedance 2.0</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 24%; background: #1B3A5C;">$0.60</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">Luma Ray3</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 28%; background: #94A3B8;">$0.70</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">Runway Gen-4.5</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 32%; background: #4A5568;">$0.80</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">Sora 2</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 40%; background: #0D7377;">$1.00</div>
+            </div>
+          </div>
+          <div class="bar-chart__row">
+            <div class="bar-chart__label">Veo 3.1</div>
+            <div class="bar-chart__track">
+              <div class="bar-chart__bar" style="width: 100%; background: #C0392B;">$2.50</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size: 9px; color: #999; margin-top: 8px;">Wan2.2 excluded (open-source, free). Prices are approximate API/platform costs.</div>
+      </div>
+      <div class="flex-col" style="gap: 12px;">
+        <div class="label-text">Quality-to-Price Value Index</div>
+        <table class="data-table" style="font-size: 11px;">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th style="text-align: right;">Quality (Avg)</th>
+              <th style="text-align: right;">Cost/Clip</th>
+              <th style="text-align: right;">Value Index</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td>Seedance 2.0</td>
+              <td class="num">8.2</td>
+              <td class="num">$0.60</td>
+              <td class="num" style="color: #2D8B4E; font-weight: 700;">13.7</td>
+            </tr>
+            <tr>
+              <td>Kling 2.1</td>
+              <td class="num">4.4</td>
+              <td class="num">$0.50</td>
+              <td class="num">8.8</td>
+            </tr>
+            <tr>
+              <td>Veo 3</td>
+              <td class="num">7.0</td>
+              <td class="num">$2.50</td>
+              <td class="num" style="color: #C0392B;">2.8</td>
+            </tr>
+            <tr style="background: #F7F8FA;">
+              <td>Wan 2.2</td>
+              <td class="num">5.6</td>
+              <td class="num">Free</td>
+              <td class="num" style="color: #2D8B4E;">&infin;</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 9px; color: #999;">Value Index = Quality Score / Cost per Clip</div>
+        <div class="callout-box" style="font-size: 11px;">
+          <strong>Veo 3.1's premium positioning:</strong> At $2.50/clip (5x Kling's price), Veo must justify its cost through superior audio synchronization and broadcast-grade color science. For most use cases, this premium is difficult to defend.
+        </div>
+        <div class="callout-box callout-box--accent" style="font-size: 11px;">
+          <strong>Seedance's value position:</strong> At just $0.10 more than the cheapest option (Kling), Seedance delivers nearly 2x the quality score &mdash; making it the clear value leader for quality-conscious buyers.
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: WaveSpeedAI, aifreeforever.com, company pricing pages, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 10: STRATEGIC POSITIONING (2x2)
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 9</div>
+    <div class="slide__action-title">The market is segmenting into four quadrants, with an emergent "premium accessible" segment where Seedance 2.0 uniquely positions</div>
+    <div class="grid-2col-60-40" style="margin-top: 4px;">
+      <div class="matrix-container" style="position: relative; padding-left: 32px; padding-top: 8px;">
+        <!-- Y-axis label -->
+        <div style="position: absolute; left: 0; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: 0 0; font-size: 10px; font-weight: 600; color: #4A5568; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap;">Quality / Capability &rarr;</div>
+        <div class="matrix-2x2" style="width: 100%; height: 380px;">
+          <div class="matrix-2x2__cell" style="background: #F0F7F7;">
+            <span style="font-size: 9px; font-weight: 600; color: #0D7377; text-transform: uppercase; letter-spacing: 0.5px;">Quality Leader</span>
+          </div>
+          <div class="matrix-2x2__cell" style="background: #FDF7F0;">
+            <span style="font-size: 9px; font-weight: 600; color: #C0392B; text-transform: uppercase; letter-spacing: 0.5px;">Premium Niche</span>
+          </div>
+          <div class="matrix-2x2__cell" style="background: #F7F8FA;">
+            <span style="font-size: 9px; font-weight: 600; color: #4A5568; text-transform: uppercase; letter-spacing: 0.5px;">Democratizer</span>
+          </div>
+          <div class="matrix-2x2__cell" style="background: #FAFAFA;">
+            <span style="font-size: 9px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.5px;">Legacy / Niche</span>
+          </div>
+        </div>
+        <!-- Model markers -->
+        <div class="matrix-marker matrix-marker--primary" style="top: 48px; left: 100px;">Seedance 2.0</div>
+        <div class="matrix-marker matrix-marker--accent" style="top: 72px; left: 220px;">Sora 2</div>
+        <div class="matrix-marker matrix-marker--grey" style="top: 56px; left: 350px;">Runway Gen-4.5</div>
+        <div class="matrix-marker matrix-marker--negative" style="top: 40px; right: 20px;">Veo 3.1</div>
+        <div class="matrix-marker matrix-marker--grey" style="top: 220px; left: 68px;">Wan2.2</div>
+        <div class="matrix-marker matrix-marker--grey" style="top: 180px; left: 290px;">Kling 3.0</div>
+        <div class="matrix-marker matrix-marker--grey" style="top: 250px; left: 200px;">Pika 2.5</div>
+        <div class="matrix-marker matrix-marker--accent" style="top: 130px; left: 300px;">Luma Ray3</div>
+        <!-- X-axis label -->
+        <div style="text-align: center; margin-top: 10px; font-size: 10px; font-weight: 600; color: #4A5568; text-transform: uppercase; letter-spacing: 0.8px;">Cost &rarr; (Low to High)</div>
+      </div>
+      <div class="flex-col" style="gap: 12px;">
+        <div class="label-text">Quadrant Definitions</div>
+        <div style="background: #F0F7F7; padding: 10px 14px; border-left: 3px solid #0D7377; font-size: 11px;">
+          <strong style="color: #0D7377;">Quality Leader</strong><br/>
+          High quality, accessible pricing. Seedance 2.0 dominates with 8.2 avg quality at $0.60/clip.
+        </div>
+        <div style="background: #FDF7F0; padding: 10px 14px; border-left: 3px solid #C0392B; font-size: 11px;">
+          <strong style="color: #C0392B;">Premium Niche</strong><br/>
+          High quality, premium pricing. Veo 3.1 at $2.50/clip targets enterprise/broadcast buyers.
+        </div>
+        <div style="background: #F7F8FA; padding: 10px 14px; border-left: 3px solid #4A5568; font-size: 11px;">
+          <strong style="color: #4A5568;">Democratizer</strong><br/>
+          Lower quality, free/low-cost. Wan2.2 (open-source) enables local deployment and customization.
+        </div>
+        <div class="callout-box" style="font-size: 11px;">
+          <strong>Strategic insight:</strong> The "Quality Leader" quadrant is the most defensible position &mdash; combining high output quality with accessible pricing creates the widest addressable market. Seedance 2.0 currently occupies this position alone.
+        </div>
+      </div>
+    </div>
+    <div class="slide__source">Source: Analyst assessment based on benchmark scores, pricing data, and feature comparison, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 11: KEY TAKEAWAYS
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Exhibit 10</div>
+    <div class="slide__action-title">Three structural shifts will define the next 12 months: architecture convergence, price commoditization, and the audio-visual integration race</div>
+    <div class="grid-3col" style="margin-top: 16px;">
+      <div class="insight-block">
+        <div class="insight-block__number">01</div>
+        <div class="insight-block__title">Architecture Convergence on DiT</div>
+        <div class="insight-block__body">
+          Diffusion Transformer variants have become the consensus backbone. Sustainable differentiation now requires <strong>training data moats</strong> or <strong>novel architectural extensions</strong> &mdash; Seedance's dual-branch audio-visual co-generation and Wan2.2's MoE denoising specialization represent the current frontier of innovation.
+          <br/><br/>
+          <strong>Implication:</strong> Pure architecture is no longer a moat. Data quality and scale will determine winners.
+        </div>
+      </div>
+      <div class="insight-block insight-block--accent">
+        <div class="insight-block__number" style="color: #0D7377;">02</div>
+        <div class="insight-block__title">Price Commoditization Accelerating</div>
+        <div class="insight-block__body">
+          Per-clip costs will compress toward <strong>$0.30&ndash;0.50</strong> as compute costs decline and open-source models (Wan2.2, LTX-2) exert downward pressure. Veo 3.1's premium pricing ($2.50/clip) will become increasingly difficult to sustain without clear value differentiation.
+          <br/><br/>
+          <strong>Implication:</strong> Monetization will shift from generation fees to workflow tools, enterprise APIs, and content management platforms.
+        </div>
+      </div>
+      <div class="insight-block insight-block--grey">
+        <div class="insight-block__number" style="color: #4A5568;">03</div>
+        <div class="insight-block__title">Audio-Visual Co-Generation Becomes Table Stakes</div>
+        <div class="insight-block__body">
+          Native audio generation (pioneered by Seedance 2.0's dual-branch approach, matched by Veo 3.1) will become <strong>table stakes by mid-2027</strong>. Models without synchronized audio will be relegated to prototyping and draft use cases.
+          <br/><br/>
+          <strong>Implication:</strong> The competitive frontier is shifting from "can it generate video?" to "can it generate production-ready audiovisual content?"
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 18px;">
+      <div class="callout-box" style="font-size: 12px;">
+        <strong>Bottom line:</strong> The era of "which AI is best?" is over. In 2026, production teams use multi-model strategies &mdash; Seedance for template-based work and multimodal remixing, Kling for rapid prototyping, Sora 2 or Veo 3.1 for final high-quality deliverables, and Wan2.2 for privacy-sensitive local generation.
+      </div>
+    </div>
+    <div class="slide__source">Source: Analyst synthesis based on market data, technical benchmarks, and pricing trends, February 2026</div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 12: APPENDIX
+       ========================================== -->
+  <section class="slide">
+    <div class="slide__exhibit">Appendix A</div>
+    <div class="slide__action-title">Detailed model specifications and benchmark data</div>
+    <div style="margin-top: 4px;">
+      <div class="label-text" style="margin-bottom: 6px;">Full Technical Specifications</div>
+      <table class="data-table" style="font-size: 9px;">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Developer</th>
+            <th>Architecture</th>
+            <th>Duration</th>
+            <th>Resolution</th>
+            <th>Audio</th>
+            <th>FPS</th>
+            <th>Input Modes</th>
+            <th>Cost/Clip</th>
+            <th>Elo</th>
+            <th>Quality Avg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Seedance 2.0</strong></td><td>ByteDance</td><td>Dual-Branch DiT</td>
+            <td>4-15s</td><td>1080p/2K</td><td>Simultaneous</td><td>24</td>
+            <td>9img+3vid+3aud</td><td class="num">$0.60</td><td class="num">TBD</td><td class="num" style="font-weight:700;">8.2</td>
+          </tr>
+          <tr>
+            <td><strong>Kling 3.0</strong></td><td>Kuaishou</td><td>DiT</td>
+            <td>10s</td><td>4K@60fps</td><td>Yes</td><td>30-60</td>
+            <td>Text+1-2 img</td><td class="num">$0.50</td><td class="num">1,225</td><td class="num">4.4</td>
+          </tr>
+          <tr>
+            <td><strong>Sora 2</strong></td><td>OpenAI</td><td>Proprietary</td>
+            <td>12s (35s Pro)</td><td>1080p</td><td>Yes</td><td>24-30</td>
+            <td>Text+1 img</td><td class="num">$1.00</td><td class="num">1,206</td><td class="num">N/A</td>
+          </tr>
+          <tr>
+            <td><strong>Veo 3.1</strong></td><td>Google</td><td>Proprietary</td>
+            <td>8s</td><td>1080p</td><td>Best-in-class</td><td>24</td>
+            <td>Text+1-2 img/vid</td><td class="num">$2.50</td><td class="num">1,226</td><td class="num">7.0</td>
+          </tr>
+          <tr>
+            <td><strong>Runway Gen-4.5</strong></td><td>Runway</td><td>Proprietary</td>
+            <td>10s</td><td>4K</td><td>Yes</td><td>24</td>
+            <td>Text+img</td><td class="num">~$0.80</td><td class="num" style="font-weight:700;">1,247</td><td class="num">N/A</td>
+          </tr>
+          <tr>
+            <td><strong>Luma Ray3</strong></td><td>Luma AI</td><td>Hi-Fi Diffusion</td>
+            <td>~10s</td><td>4K HDR</td><td>&mdash;</td><td>&mdash;</td>
+            <td>Text+img</td><td class="num">~$0.70</td><td class="num">&mdash;</td><td class="num">N/A</td>
+          </tr>
+          <tr>
+            <td><strong>Pika 2.5</strong></td><td>Pika</td><td>Proprietary</td>
+            <td>~8s</td><td>1080p</td><td>&mdash;</td><td>&mdash;</td>
+            <td>Text+img+ingredients</td><td class="num">~$0.40</td><td class="num">&mdash;</td><td class="num">N/A</td>
+          </tr>
+          <tr>
+            <td><strong>Wan2.2</strong></td><td>Alibaba</td><td>MoE DiT (A14B)</td>
+            <td>Variable</td><td>1080p</td><td>&mdash;</td><td>&mdash;</td>
+            <td>Text+img</td><td class="num" style="color:#2D8B4E;">Free</td><td class="num">&mdash;</td><td class="num">5.6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 14px;">
+      <div class="label-text" style="margin-bottom: 6px;">Structured Quality Benchmark Scores (1-10 Scale)</div>
+      <table class="data-table" style="font-size: 10px;">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th style="text-align: right;">Kling 2.1</th>
+            <th style="text-align: right;">Wan 2.2</th>
+            <th style="text-align: right;">Veo 3</th>
+            <th style="text-align: right;">Seedance 2.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Edge Stability</td><td class="num">5</td><td class="num">6</td><td class="num">7</td><td class="num" style="font-weight:700;">8</td></tr>
+          <tr><td>Motion Flow</td><td class="num">5</td><td class="num">6</td><td class="num">7</td><td class="num" style="font-weight:700;">9</td></tr>
+          <tr><td>Style Drift Resistance</td><td class="num">4</td><td class="num">6</td><td class="num">7</td><td class="num" style="font-weight:700;">8</td></tr>
+          <tr><td>Face Consistency</td><td class="num">4</td><td class="num">5</td><td class="num" style="font-weight:700;">7</td><td class="num" style="font-weight:700;">7</td></tr>
+          <tr><td>Camera Control</td><td class="num">4</td><td class="num">5</td><td class="num">7</td><td class="num" style="font-weight:700;">9</td></tr>
+          <tr class="highlight-row"><td><strong>Average</strong></td><td class="num">4.4</td><td class="num">5.6</td><td class="num">7.0</td><td class="num" style="color:#1B3A5C; font-weight:700;">8.2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 10px; font-size: 9px; color: #999; line-height: 1.4;">
+      <strong>Sources:</strong> Grand View Research (market sizing); Verified Market Research (market sizing); MarketsandMarkets (market projections); Lanta AI (structured benchmarks); VBench / aifreeforever.com (Elo ratings); WaveSpeedAI (model comparison); SitePoint, DataCamp (architecture details); Company announcements and documentation (technical specifications); Clippie AI (adoption metrics). All data as of February 2026. Benchmark methodology: 50+ generations per model, 15-category prompt set, 4s/720p/24fps, 2 independent reviewers.
+    </div>
+    <div class="slide__confidential">Draft</div>
+  </section>
+
+</div>
+</body>
+</html>
